@@ -1,21 +1,16 @@
-using Catalog.API.Data;
-using Catalog.API.Repositories;
-using Microsoft.OpenApi.Models;
+using Discount.API.Extensions;
+using Discount.Domain.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.MigrateDatabase<Program>();
+builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog.API", Version = "v1" });
-});
-
-builder.Services.AddScoped<ICatalogContext, CatalogContext>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

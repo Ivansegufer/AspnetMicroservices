@@ -4,17 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:16027",
-      "sslPort": 44341
+      "applicationUrl": "http://localhost:61229",
+      "sslPort": 44383
     }
   },
   "profiles": {
-    "Catalog.API": {
+    "Basket.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:5000"
+      "applicationUrl": "https://localhost:5001"
     }
   }
 }

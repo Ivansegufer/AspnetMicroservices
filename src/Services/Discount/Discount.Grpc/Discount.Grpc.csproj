@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+        <PackageReference Include="Dapper" Version="2.0.123" />
+        <PackageReference Include="Npgsql" Version="7.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Discount.Domain\Discount.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Protos\discount.proto" />
+      <Protobuf Include="Protos\discount.proto" />
+    </ItemGroup>
+
+</Project>
